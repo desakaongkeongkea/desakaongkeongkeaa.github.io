@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desa Kaongkeongkea - Kec. Pasarwajo, Kab. Buton</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --accent: #ff9800;
+            --white: #ffffff;
+            --light: #f8f9fa;
+            --dark: #333333;
+            --gray: #6c757d;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 0.7rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            object-fit: cover;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .desktop-nav {
+            display: none;
+        }
+
+        .desktop-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .desktop-nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--white);
+            transition: var(--transition);
+        }
+
+        .desktop-nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 280px;
+            height: 100%;
+            background: var(--primary);
+            z-index: 1100;
+            transition: var(--transition);
+            padding: 2rem;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        }
+
+        .mobile-nav.active {
+            left: 0;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            margin-top: 3rem;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: var(--transition);
+        }
+
+        .mobile-nav a:hover {
+            padding-left: 10px;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1050;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('fotodesa1.jpeg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            margin: 0 10px;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 20px auto 0;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Profile Section */
+        .profile {
+            background: var(--light);
+        }
+
+        .profile-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .profile-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .profile-info h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .profile-details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .detail-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .detail-card h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .detail-card p {
+            margin-bottom: 10px;
+        }
+
+        .detail-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            transition: var(--transition);
+        }
+
+        .detail-card a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Potensi Section */
+        .potensi {
+            background: var(--white);
+        }
+
+        .potensi-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .potensi-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #e0e0e0;
+        }
+
+        .potensi-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .potensi-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .potensi-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .potensi-card:hover .potensi-img img {
+            transform: scale(1.1);
+        }
+
+        .potensi-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .potensi-content {
+            padding: 25px;
+        }
+
+        .potensi-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .potensi-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .potensi-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .feature-tag {
+            background: var(--light);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Slider Styles untuk Potensi Wisata */
+        .potensi-slider {
+            margin-top: 20px;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .potensi-slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .potensi-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .potensi-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .potensi-slide img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .potensi-slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .potensi-slide-caption h4 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .potensi-slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .potensi-slider-btn:hover {
+            background: var(--white);
+        }
+
+        .potensi-prev-btn {
+            left: 10px;
+        }
+
+        .potensi-next-btn {
+            right: 10px;
+        }
+
+        .potensi-slider-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .potensi-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .potensi-dot.active {
+            background: var(--white);
+        }
+
+        /* Fasilitas Section */
+        .fasilitas {
+            background: var(--light);
+        }
+
+        .fasilitas-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .fasilitas-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .fasilitas-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .fasilitas-content {
+            padding: 25px;
+        }
+
+        .fasilitas-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .fasilitas-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .fasilitas-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        /* Slider Styles untuk Fasilitas Pendidikan dan Kesehatan */
+        .education-slider {
+            margin-top: 20px;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .education-slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .education-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .education-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .education-slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .education-slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .education-slide-caption h4 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .education-slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .education-slider-btn:hover {
+            background: var(--white);
+        }
+
+        .education-prev-btn {
+            left: 10px;
+        }
+
+        .education-next-btn {
+            right: 10px;
+        }
+
+        .education-slider-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .education-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .education-dot.active {
+            background: var(--white);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--white);
+        }
+
+        .footer-section p {
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .desktop-nav {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .profile-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .potensi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .fasilitas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .education-slide img {
+                height: 350px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .potensi-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .fasilitas-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .profile-details {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .education-slide img {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo profil.png" alt="Logo Desa Kaongkeongkea">
+                    <div class="logo-text">
+                        <h1>Desa Kaongkeongkea</h1>
+                        <p>Kec. Pasarwajo, Kab. Buton</p>
+                    </div>
+                </div>
+                
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#profile">Profil</a></li>
+                        <li><a href="#potensi">Potensi</a></li>
+                        <li><a href="#fasilitas">Fasilitas</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="close-menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang Desa</a></li>
+            <li><a href="#profile">Profil</a></li>
+            <li><a href="#potensi">Potensi</a></li>
+            <li><a href="#fasilitas">Fasilitas</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+    
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Selamat Datang di Desa Kaongkeongkea</h1>
+            <p>Desa yang damai dan asri di Kecamatan Pasarwajo, Kabupaten Buton dengan kekayaan alam dan budaya yang mempesona.</p>
+            <div class="hero-buttons">
+                <a href="#potensi" class="btn">Potensi Desa Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang Desa Kaongkeongkea</h2>
+                <p>Mengenal lebih dekat sejarah dan keunikan desa kami</p>
+            </div>
+            <div class="about-content fade-in">
+                <div class="about-image">
+                    <img src="Gambar WhatsApp 2025-10-20 pukul 11.46.40_a4ffeb5c.jpg" alt="Pemandangan Desa Kaongkeongkea">
+                </div>
+                <div class="about-text">
+                    <h3>Sejarah Desa Kaongkeongkea</h3>
+                    <p>Desa Kaongkeaongkea yang diambil dari sebuah nama pohon yaitu pohon ongkea yang banyak tumbuh di pinggir kali sampulakosa/kali ongkea. Dengan adanya perkembangan penduduk yang semakin meningkat kali sampulakosa yang berada di Kaongkeongkea menjadi Desa Wakaokili pada tahun 1964.</p>
+                    <p>Nama desa ini diperoleh dari bergabungnya desa tetangga yakni Wakaokili, Gonda, dan Kaongkeongkea pada masa pemerintahan Kepala Desa La Janibu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section class="profile" id="profile">
+        <div class="container">
+            <div class="section-title">
+                <h2>Profil Desa</h2>
+                <p>Informasi lengkap tentang Desa Kaongkeongkea</p>
+            </div>
+            <div class="profile-content fade-in">
+                <div class="profile-image">
+                    <img src="fotopemandangandesa.jpeg" alt="Profil Desa Kaongkeongkea">
+                </div>
+                <div class="profile-info">
+                    <h3>Desa Kaongkeongkea</h3>
+                    <p>Salah satu desa di Kecamatan Pasarwajo, Kabupaten Buton, Provinsi Sulawesi Tenggara. Desa ini terkenal sebagai desa wisata yang menawarkan keindahan alam, kekayaan budaya, dan potensi agrobisnis, terutama kopi robusta.</p>
+                    
+                    <div class="profile-details">
+                        <div class="detail-card">
+                            <h4>Sejarah Desa</h4>
+                            <p>Desa Kaongkeaongkea berasal dari suku lapandewa dan berbahasa daerah Cia-Cia. Lahirnya nama kaongkeongkea berasal dari nama sebuah pohon yaitu pohon Ongkea.</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Visi & Misi</h4>
+                            <p><strong>Visi:</strong> "Terwujudnya Desa Kaongkeaongkea yang Mandiri, Sejahtera dan Berbudaya".</p>
+                            <p><strong>Misi:</strong> Meningkatkan kesejahteraan masyarakat melalui pemberdayaan ekonomi.</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Struktur Organisasi</h4>
+                            <li><a href="strukturdesa.html">Struktur Lembaga Pemerintah Desa</a></li>
+                            <li><a href="bpd.html">Badan Permusyarawatan Desa</a></li>
+                            <li><a href="lembagaagama.html">Lembaga Agama</a></li>
+                            <li><a href="lembagaadat.html">Struktur Lembaga Adat</a></li>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Data Penduduk Desa dari Januari - Oktober 2025</h4>
+                            <p>Laki-Laki : 406 Jiwa</p>
+                            <p>Perempuan : 424 Jiwa</p>
+                            <p>Total     : 830 Jiwa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Potensi Section -->
+    <section class="potensi" id="potensi">
+        <div class="container">
+            <div class="section-title">
+                <h2>Potensi Desa</h2>
+                <p>Berbagai potensi unggulan yang dimiliki Desa Kaongkeongkea</p>
+            </div>
+            <div class="potensi-grid fade-in">
+                <div class="potensi-card">
+                    <div class="potensi-img">
+                        <img src="10.jpg" alt="Kopi Robusta">
+                        <div class="potensi-badge">Ekonomi</div>
+                    </div>
+                    <div class="potensi-content">
+                        <h3>Perkebunan Kopi</h3>
+                        <p>Kopi menjadi komoditas unggulan desa dengan kualitas terbaik yang dihasilkan dari perkebunan kopi tradisional.</p>
+                        <div class="potensi-features">
+                            <span class="feature-tag">Unggulan Desa</span>
+                            <span class="feature-tag">Ekonomi Kreatif</span>
+                            <span class="feature-tag">Perkebunan</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wisata Alam dengan Slider 2 Foto -->
+                <div class="potensi-card">
+                    <div class="potensi-slider">
+                        <div class="potensi-slider-container">
+                            <div class="potensi-slides" id="wisataSlider">
+                                <div class="potensi-slide">
+                                    <img src="7.jpg" alt="Wisata Alam 1">
+                                    <div class="potensi-slide-caption">
+                                        <h4>Air Terjun Bumbula</h4>
+                                    </div>
+                                </div>
+                                <div class="potensi-slide">
+                                    <img src="8.jpg" alt="Wisata Alam 2">
+                                    <div class="potensi-slide-caption">
+                                        <h4>Jembatan Gantung</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="potensi-slider-btn potensi-prev-btn" onclick="prevSlidePotensi('wisataSlider', 'wisataSliderDots')">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="potensi-slider-btn potensi-next-btn" onclick="nextSlidePotensi('wisataSlider', 'wisataSliderDots')">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="potensi-slider-dots" id="wisataSliderDots"></div>
+                        </div>
+                    </div>
+                    <div class="potensi-content">
+                        <h3>Wisata Alam</h3>
+                        <p>Air terjun Bumbula dan jembatan gantung menjadi destinasi wisata alam yang menarik dengan pemandangan yang memukau.</p>
+                        <div class="potensi-features">
+                            <span class="feature-tag">Destinasi Wisata</span>
+                            <span class="feature-tag">Alam</span>
+                            <span class="feature-tag">Rekreasi</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="potensi-card">
+                    <div class="potensi-img">
+                        <img src="22.jpg" alt="Pertanian">
+                        <div class="potensi-badge">Pertanian</div>
+                    </div>
+                    <div class="potensi-content">
+                        <h3>Pertanian Organik</h3>
+                        <p>Lahan pertanian yang subur menghasilkan berbagai komoditas pangan seperti padi, jagung, dan sayuran organik.</p>
+                        <div class="potensi-features">
+                            <span class="feature-tag">Pangan</span>
+                            <span class="feature-tag">Organik</span>
+                            <span class="feature-tag">Berkelanjutan</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="potensi-card">
+                    <div class="potensi-img">
+                        <img src="11.jpg" alt="Kerajinan">
+                        <div class="potensi-badge">Kuliner</div>
+                    </div>
+                    <div class="potensi-content">
+                        <h3>Penyangraian Kopi</h3>
+                        <p>Di sudut desa yang tenang, aroma kopi tradisional mengundang siapa pun untuk menikmati cita rasa khas bumi pertiwi. Kopi Desa adalah warisan rasa dari biji pilihan petani lokal, diracik dengan cinta dan disajikan hangat penuh keaslian.</p>
+                        <div class="potensi-features">
+                            <span class="feature-tag">UMKM</span>
+                            <span class="feature-tag">Kuliner</span>
+                            <span class="feature-tag">Budaya</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas Section -->
+    <section class="fasilitas" id="fasilitas">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fasilitas Desa</h2>
+                <p>Berbagai fasilitas yang tersedia untuk mendukung kehidupan masyarakat Desa Kaongkeongkea</p>
+            </div>
+            <div class="fasilitas-grid fade-in">
+                <!-- Fasilitas Pendidikan -->
+                <div class="fasilitas-card">
+                    <!-- Slider untuk Fasilitas Pendidikan -->
+                    <div class="education-slider">
+                        <div class="education-slider-container">
+                            <div class="education-slides" id="educationSlider">
+                                <div class="education-slide">
+                                    <img src="1.jpg" alt="TK Haran Ibu">
+                                    <div class="education-slide-caption">
+                                        <h4>TK Haran Ibu</h4>
+                                        <p>Lembaga pendidikan anak usia dini</p>
+                                    </div>
+                                </div>
+                                <div class="education-slide">
+                                    <img src="2.jpg" alt="SD Negeri 2 Buton">
+                                    <div class="education-slide-caption">
+                                        <h4>SD Negeri 2 Buton</h4>
+                                        <p>Sekolah dasar negeri berkualitas</p>
+                                    </div>
+                                </div>
+                                <div class="education-slide">
+                                    <img src="3.jpg" alt="SMP Negeri 48 Buton">
+                                    <div class="education-slide-caption">
+                                        <h4>SMP Negeri 48 Buton</h4>
+                                        <p>Sekolah menengah pertama terpadu</p>
+                                    </div>
+                                </div>
+                                <div class="education-slide">
+                                    <img src="4.jpg" alt="SMA Negeri 5 Pasarwajo">
+                                    <div class="education-slide-caption">
+                                        <h4>SMA Negeri 5 Pasarwajo</h4>
+                                        <p>Sekolah menengah atas unggulan</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="education-slider-btn education-prev-btn" onclick="prevSlide('educationSlider', 'educationSliderDots')">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="education-slider-btn education-next-btn" onclick="nextSlide('educationSlider', 'educationSliderDots')">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="education-slider-dots" id="educationSliderDots"></div>
+                        </div>
+                    </div>
+    
+                    <div class="fasilitas-content">
+                        <h3>Fasilitas Pendidikan</h3>
+                        <p>Desa Kaongkeongkea memiliki sarana pendidikan lengkap mulai dari TK, SD, SMP hingga SMA untuk mendukung pendidikan generasi muda.</p>
+                    </div>
+                </div>
+                
+                <!-- Fasilitas Kesehatan -->
+                <div class="fasilitas-card">
+                    <!-- Slider untuk Fasilitas Kesehatan -->
+                    <div class="education-slider">
+                        <div class="education-slider-container">
+                            <div class="education-slides" id="healthSlider">
+                                <div class="education-slide">
+                                    <img src="17.jpg" alt="Puskesmas">
+                                    <div class="education-slide-caption">
+                                        <h4>Puskesmas</h4>
+                                        <p>Pusat layanan kesehatan dengan tenaga medis profesional untuk seluruh masyarakat</p>
+                                    </div>
+                                </div>
+                                <div class="education-slide">
+                                    <img src="12.jpg" alt="Posyandu">
+                                    <div class="education-slide-caption">
+                                        <h4>Posyandu</h4>
+                                        <p>Layanan kesehatan dasar di desa yang dikelola kader, fokus pada ibu dan anak</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="education-slider-btn education-prev-btn" onclick="prevSlide('healthSlider', 'healthSliderDots')">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="education-slider-btn education-next-btn" onclick="nextSlide('healthSlider', 'healthSliderDots')">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="education-slider-dots" id="healthSliderDots"></div>
+                        </div>
+                    </div>
+
+                    <div class="fasilitas-content">
+                        <h3>Fasilitas Kesehatan</h3>
+                        <p>Puskesmas dan posyandu yang melayani kesehatan masyarakat dengan tenaga medis profesional dan fasilitas yang memadai.</p>
+                        
+                    </div>
+                </div>
+                
+                <!-- Fasilitas Pemerintahan dengan 3 Foto -->
+                <div class="fasilitas-card">
+                    <div class="education-slider">
+                        <div class="education-slider-container">
+                            <div class="education-slides" id="governmentSlider">
+                                <div class="education-slide">
+                                    <img src="6.jpg" alt="Baruga Desa">
+                                    <div class="education-slide-caption">
+                                        <h4>Baruga Desa</h4>
+                                        <p>Balai pertemuan dan musyawarah masyarakat untuk berbagai kegiatan desa</p>
+                                    </div>
+                                </div>
+                                <div class="education-slide">
+                                    <img src="16.jpg" alt="Kantor BPP">
+                                    <div class="education-slide-caption">
+                                        <h4>Kantor BPP</h4>
+                                        <p>Kantor Badan Penyuluhan Pertanian untuk mendukung sektor pertanian desa</p>
+                                    </div>
+                                </div>
+                                <div class="education-slide">
+                                    <img src="20.jpg" alt="Dinas Pertanian">
+                                    <div class="education-slide-caption">
+                                        <h4>Dinas Pertanian BBUH</h4>
+                                        <p>Fasilitas pendukung sektor pertanian dan peternakan masyarakat</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="education-slider-btn education-prev-btn" onclick="prevSlide('governmentSlider', 'governmentSliderDots')">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="education-slider-btn education-next-btn" onclick="nextSlide('governmentSlider', 'governmentSliderDots')">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="education-slider-dots" id="governmentSliderDots"></div>
+                        </div>
+                    </div>
+                    <div class="fasilitas-content">
+                        <h3>Fasilitas Pemerintahan</h3>
+                        <p>Fasilitas pemerintah desa berfungsi untuk melayani, memberdayakan, dan memajukan masyarakat desa.</p>
+                    </div>
+                </div>
+                
+                <!-- Fasilitas Lainnya -->
+                <div class="fasilitas-card">
+                    <div class="education-slider">
+                        <div class="education-slider-container">
+                            <div class="education-slides" id="worshipSlider">
+                                <div class="education-slide">
+                                    <img src="masjid.jpg" alt="Masjid">
+                                    <div class="education-slide-caption">
+                                        <h4>Masjid Haqqul Yakkin</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fasilitas-content">
+                        <h3>Tempat Ibadah</h3>
+                        <p>Masjid Haqqul Yakkin sebagai tempat ibadah utama umat Islam dengan arsitektur yang indah dan fasilitas yang lengkap.</p>
+                    </div>
+                </div>
+                
+                <div class="fasilitas-card">
+                    <div class="education-slider">
+                        <div class="education-slider-container">
+                            <div class="education-slides" id="sportsSlider">
+                                <div class="education-slide">
+                                    <img src="18.jpg" alt="Lapangan Desa">
+                                    <div class="education-slide-caption">
+                                        <h4>Lapangan Desa</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fasilitas-content">
+                        <h3>Fasilitas Olahraga</h3>
+                        <p>Lapangan desa yang luas untuk berbagai kegiatan olahraga, seni, dan acara masyarakat desa.</p>
+                    </div>
+                </div>
+
+                <div class="fasilitas-card">
+                    <div class="education-slider">
+                        <div class="education-slider-container">
+                            <div class="education-slides" id="worshipSlider">
+                                <div class="education-slide">
+                                    <img src="21.jpg" alt="Masjid">
+                                    <div class="education-slide-caption">
+                                        <h4>Sumur Umum</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fasilitas-content">
+                        <h3>Sumur Umum</h3>
+                        <p>Sumur umum di desa berfungsi untuk menyediakan air bersih bagi kebutuhan warga, seperti mandi, mencuci, dan memasak.</p>
+                    </div>
+                </div>
+
+                <div class="fasilitas-card">
+                    <div class="education-slider">
+                        <div class="education-slider-container">
+                            <div class="education-slides" id="worshipSlider">
+                                <div class="education-slide">
+                                    <img src="pasar.jpg" alt="Masjid">
+                                    <div class="education-slide-caption">
+                                        <h4>Pasar Kaongkeaongkea</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fasilitas-content">
+                        <h3>Pasar</h3>
+                        <p>tempat jual beli barang dan jasa serta meningkatkan perekonomian masyarakat.</p>
+                    </div>
+                </div>
+                
+                <div class="fasilitas-card">
+                    <div class="education-slider">
+                        <div class="education-slider-container">
+                            <div class="education-slides" id="securitySlider">
+                                <div class="education-slide">
+                                    <img src="19.jpg" alt="Pos Jaga">
+                                    <div class="education-slide-caption">
+                                        <h4>Pos Jaga</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fasilitas-content">
+                        <h3>Fasilitas Keamanan</h3>
+                        <p>Pos jaga dan sistem keamanan lingkungan untuk menjaga ketertiban dan keamanan masyarakat desa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontak Kami</h2>
+                <p>Hubungi kami untuk informasi lebih lanjut tentang Desa Kaongkeongkea</p>
+            </div>
+            <div class="contact-content fade-in">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Alamat</h4>
+                                <p>GQH3+GVV, Kaongkeongkea, Ps. Wajo, Murhum, Kabupaten Buton, Sulawesi Tenggara 93757</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Telepon</h4>
+                                <p>0822-5290-2195</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>info@desakaongkeongkea.id</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Jam Operasional</h4>
+                                <p>Senin - Jumat: 08:00 - 16:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <h3>Lokasi Desa</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.7118629712232!2d122.7521014!3d-5.4711452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2da40c83765dc021%3A0x1692ef2d570f713b!2sDesa%20Kaongkeongkea%2C%20Kecamatan%20Pasarwajo%2C%20Kabupaten%20Buton!5e0!3m2!1sid!2sid!4v1730000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tentang Desa</h3>
+                    <p>Desa Kaongkeongkea adalah desa yang terletak di Kecamatan Pasarwajo, Kabupaten Buton, Sulawesi Tenggara dengan potensi alam dan budaya yang kaya.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Menu Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang Desa</a></li>
+                        <li><a href="#profile">Profil</a></li>
+                        <li><a href="#potensi">Potensi</a></li>
+                        <li><a href="#fasilitas">Fasilitas</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Fasilitas Desa</h3>
+                    <ul class="footer-links">
+                        <li><a href="#fasilitas">Pendidikan</a></li>
+                        <li><a href="#fasilitas">Kesehatan</a></li>
+                        <li><a href="#fasilitas">Tempat Ibadah</a></li>
+                        <li><a href="#fasilitas">Pemerintahan</a></li>
+                        <li><a href="#fasilitas">Olahraga</a></li>
+                        <li><a href="#fasilitas">Keamanan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Kaongkeongkea, Ps. Wajo, Buton</p>
+                    <p><i class="fas fa-phone"></i> 0822-5290-2195</p>
+                    <p><i class="fas fa-envelope"></i> info@desakaongkeongkea.id</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Desa Kaongkeaongkea. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNav = document.getElementById('mobileNav');
+        const closeMenuBtn = document.querySelector('.close-menu');
+        const overlay = document.getElementById('overlay');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenuBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+        
+        function closeMenu() {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close mobile menu when clicking on links
+        const mobileMenuLinks = document.querySelectorAll('.mobile-nav a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+                backToTop.classList.add('active');
+            } else {
+                header.classList.remove('scrolled');
+                backToTop.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        // Trigger once on load
+        fadeInOnScroll();
+
+        // Slider Functionality untuk semua slider
+        const sliders = {};
+
+        function initSlider(sliderId, dotsId) {
+            const slider = document.getElementById(sliderId);
+            const slides = slider.querySelectorAll('.education-slide');
+            const dotsContainer = document.getElementById(dotsId);
+            let currentSlide = 0;
+            let interval;
+            
+            // Create dots
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = 'education-dot';
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(sliderId, index));
+                dotsContainer.appendChild(dot);
+            });
+            
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update dots
+                dotsContainer.querySelectorAll('.education-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+                
+                // Reset auto slide timer
+                resetAutoSlide();
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                goToSlide(currentSlide);
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                goToSlide(currentSlide);
+            }
+            
+            function startAutoSlide() {
+                interval = setInterval(nextSlide, 4000);
+            }
+            
+            function resetAutoSlide() {
+                clearInterval(interval);
+                startAutoSlide();
+            }
+            
+            // Auto slide hanya jika ada lebih dari 1 slide
+            if (slides.length > 1) {
+                startAutoSlide();
+            }
+            
+            // Simpan fungsi untuk akses global
+            sliders[sliderId] = { nextSlide, prevSlide, goToSlide };
+        }
+
+        // Fungsi global untuk tombol
+        function nextSlide(sliderId, dotsId) {
+            if (sliders[sliderId]) {
+                sliders[sliderId].nextSlide();
+            }
+        }
+
+        function prevSlide(sliderId, dotsId) {
+            if (sliders[sliderId]) {
+                sliders[sliderId].prevSlide();
+            }
+        }
+
+        // Slider Functionality untuk Potensi Wisata
+        const potensiSliders = {};
+
+        function initPotensiSlider(sliderId, dotsId) {
+            const slider = document.getElementById(sliderId);
+            const slides = slider.querySelectorAll('.potensi-slide');
+            const dotsContainer = document.getElementById(dotsId);
+            let currentSlide = 0;
+            let interval;
+            
+            // Create dots
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = 'potensi-dot';
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlidePotensi(sliderId, index));
+                dotsContainer.appendChild(dot);
+            });
+            
+            function goToSlidePotensi(slideIndex) {
+                currentSlide = slideIndex;
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update dots
+                dotsContainer.querySelectorAll('.potensi-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+                
+                // Reset auto slide timer
+                resetAutoSlide();
+            }
+            
+            function nextSlidePotensi() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                goToSlidePotensi(currentSlide);
+            }
+            
+            function prevSlidePotensi() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                goToSlidePotensi(currentSlide);
+            }
+            
+            function startAutoSlide() {
+                interval = setInterval(nextSlidePotensi, 4000);
+            }
+            
+            function resetAutoSlide() {
+                clearInterval(interval);
+                startAutoSlide();
+            }
+            
+            // Auto slide hanya jika ada lebih dari 1 slide
+            if (slides.length > 1) {
+                startAutoSlide();
+            }
+            
+            // Simpan fungsi untuk akses global
+            potensiSliders[sliderId] = { nextSlidePotensi, prevSlidePotensi, goToSlidePotensi };
+        }
+
+        // Fungsi global untuk tombol potensi
+        function nextSlidePotensi(sliderId, dotsId) {
+            if (potensiSliders[sliderId]) {
+                potensiSliders[sliderId].nextSlidePotensi();
+            }
+        }
+
+        function prevSlidePotensi(sliderId, dotsId) {
+            if (potensiSliders[sliderId]) {
+                potensiSliders[sliderId].prevSlidePotensi();
+            }
+        }
+
+        // Initialize semua slider ketika page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Slider Pendidikan
+            initSlider('educationSlider', 'educationSliderDots');
+            
+            // Slider Kesehatan
+            initSlider('healthSlider', 'healthSliderDots');
+            
+            // Slider Pemerintahan (3 foto)
+            initSlider('governmentSlider', 'governmentSliderDots');
+            
+            // Slider Wisata Alam (2 foto)
+            initPotensiSlider('wisataSlider', 'wisataSliderDots');
+            
+            // Slider lainnya (jika ada lebih dari 1 gambar)
+            const worshipSlider = document.getElementById('worshipSlider');
+            if (worshipSlider.querySelectorAll('.education-slide').length > 1) {
+                initSlider('worshipSlider', 'worshipSliderDots');
+            }
+            
+            const sportsSlider = document.getElementById('sportsSlider');
+            if (sportsSlider.querySelectorAll('.education-slide').length > 1) {
+                initSlider('sportsSlider', 'sportsSliderDots');
+            }
+            
+            const securitySlider = document.getElementById('securitySlider');
+            if (securitySlider.querySelectorAll('.education-slide').length > 1) {
+                initSlider('securitySlider', 'securitySliderDots');
+            }
+        });
+    </script>
+</body>
+</html>
